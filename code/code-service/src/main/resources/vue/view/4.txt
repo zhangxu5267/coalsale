@@ -1,0 +1,26 @@
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}</Row>
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}<Divider />
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}<Row>
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}<Col span="24">
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}<FormItem class="pro-float-right">
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}<Button type="primary" @click="vagueQuery${initialCaseEntityName}()" :loading="${initialLowercaseEntityName}QuerySubmitting">精准查询</Button>
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}<Button class="pro-margin-left-8" @click="reset${initialCaseEntityName}QueryForm()">重置</Button>
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}</FormItem>
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}</Col>
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}</Row>
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}</Form>
+${ci}${ci}${ci}${ci}${ci}${ci}</div>
+${ci}${ci}${ci}${ci}${ci}</Poptip>
+${ci}${ci}${ci}${ci}</Col>
+${ci}${ci}${ci}</Row>
+${ci}${ci}${ci}<Button class="pro-list-button" type="primary" icon="ios-add-circle-outline" ghost @click="add${initialCaseEntityName}()">新建</Button>
+${ci}${ci}${ci}<Button class="pro-list-button" type="dashed" icon="ios-brush-outline" @click="up${initialCaseEntityName}()" v-if="${initialLowercaseEntityName}SelectRowLength === 1">编辑</Button>
+${ci}${ci}${ci}<Poptip class="pro-list-button" title="确认删除？" placement="bottom" confirm @on-ok="del${initialCaseEntityName}()" v-if="${initialLowercaseEntityName}SelectRowLength > 0">
+${ci}${ci}${ci}${ci}<Button type="error" icon="ios-backspace-outline" ghost>删除</Button>
+${ci}${ci}${ci}</Poptip>
+${ci}${ci}${ci}<Button class="pro-list-button" icon="md-bulb" @click="detail${initialCaseEntityName}()" v-if="${initialLowercaseEntityName}SelectRowLength === 1">详情</Button>
+${ci}${ci}${ci}<Poptip class="pro-margin-top-12 pro-float-right" placement="left-start" width="173">
+${ci}${ci}${ci}${ci}<Button type="text" size="large" icon="ios-keypad-outline"></Button>
+${ci}${ci}${ci}${ci}<div slot="content">
+${ci}${ci}${ci}${ci}${ci}<CheckboxGroup class="pro-margin-top-12" v-model="${initialLowercaseEntityName}ColumnsChecked" @on-change="change${initialCaseEntityName}Columns">
+${ci}${ci}${ci}${ci}${ci}${ci}<Row type="flex" justify="center">

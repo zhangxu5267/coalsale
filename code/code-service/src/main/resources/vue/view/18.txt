@@ -1,0 +1,3 @@
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}<Col span="24">
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}${ci}<Checkbox class="pro-margin-left-2" label="${initialLowercaseColumnName}">${columnNameAnnotation}</Checkbox>
+${ci}${ci}${ci}${ci}${ci}${ci}${ci}</Col>

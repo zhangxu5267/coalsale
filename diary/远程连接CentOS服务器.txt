@@ -1,0 +1,10 @@
+远程连接CentOS服务器
+
+
+ssh 命令连接
+
+
+sshpass -p Dongrun1234 ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 root@47.104.74.122 -p 22
+
+
+sshpass -p Drkj123456 ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 root@114.116.46.180 -p 22

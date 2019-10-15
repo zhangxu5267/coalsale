@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drzyl.tool.util.mapper.ToolMapper">
+  <sql id="mysqlPagingSql">
+     LIMIT #{offset}, #{rows}
+  </sql>
+  <sql id="startOraclePagingSql">
+    SELECT * FROM ( SELECT ROWNUM RN, alias.* FROM ( 
+  </sql>
+  <sql id="endOraclePagingSql">
+     ) alias WHERE ROWNUM <![CDATA[ <= ]]> #{endOffset} ) WHERE RN >= #{startOffset}
+  </sql>
+    <sql id="publicFields">
+            VERSIONS AS versions,
+            CREATE_ID AS createId,
+            CREATE_NAME AS createName,
+            CREATE_ORG AS createOrg,
+            CREATE_TIMES AS createTimes,
+            MODIFY_ID AS modifyId,
+            MODIFY_NAME AS modifyName,
+            MODIFY_ORG AS modifyOrg,
+            MODIFY_TIMES AS modifyTimes,
+            DEL_FLAG AS delFlag
+  </sql>
+</mapper>

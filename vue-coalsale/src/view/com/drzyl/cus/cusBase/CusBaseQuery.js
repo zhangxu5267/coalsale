@@ -1,0 +1,72 @@
+export default class CusBaseQuery {
+  constructor () {
+    this.toolExists = null // 解决多对多关系预留字段之存在
+    this.toolNotExists = null // 解决多对多关系预留字段之不存在
+    this.cusBaseId = null // ID
+    this.customNo = null // 客户编码
+    this.companyName = null // 单位名称
+    this.creditCode = null // 社会统一信用代码
+    this.address = null // 地址
+    this.legalRep = null // 法定代表人
+    this.legalPhone = null // 法定代表人电话
+    this.legalFax = null // 法定代表人传真
+    this.openingBank = null // 开户银行
+    this.bankAccount = null // 银行账号
+    this.regNumber = null // 纳税登记号
+    this.conPhone = null // 联系电话
+    this.zipcode = null // 邮政编码
+    this.remark = null // 备注
+    this.uploadIds = null // 附件IDs
+    this.actProcessInstanceId = null // 流程实例ID
+    this.actProcessStatus = null // 流程状态
+    this.versions = null // 版本号
+    this.createId = null // 创建人账号
+    this.createName = null // 创建人名称
+    this.createOrg = null // 创建机构
+    this.createTimes = null // 创建时间
+    this.modifyId = null // 修改人账号
+    this.modifyName = null // 修改人名称
+    this.modifyOrg = null // 修改机构
+    this.modifyTimes = null // 修改时间
+    this.delFlag = null // 逻辑删除0=删除,start=启用,stop=停止
+    this.cusBaseIdAndin = null // IDAndin查询
+    this.customNoAndeq = null // 客户编码Andeq查询
+    this.customNoAndKeyLike = null // 客户编码AndKeyLike查询
+    this.companyNameOrKeyLike = null // 单位名称OrKeyLike查询
+    this.creditCodeOrKeyLike = null // 社会统一信用代码OrKeyLike查询
+    this.addressOrKeyLike = null // 地址OrKeyLike查询
+    this.legalRepOrKeyLike = null // 法定代表人OrKeyLike查询
+    this.legalPhoneOrKeyLike = null // 法定代表人电话OrKeyLike查询
+    this.legalFaxOrKeyLike = null // 法定代表人传真OrKeyLike查询
+    this.openingBankOrKeyLike = null // 开户银行OrKeyLike查询
+    this.bankAccountOrKeyLike = null // 银行账号OrKeyLike查询
+    this.regNumberOrKeyLike = null // 纳税登记号OrKeyLike查询
+    this.conPhoneOrKeyLike = null // 联系电话OrKeyLike查询
+    this.zipcodeOrKeyLike = null // 邮政编码OrKeyLike查询
+    this.remarkOrKeyLike = null // 备注OrKeyLike查询
+    this.uploadIdsOrKeyLike = null // 附件IDsOrKeyLike查询
+    this.actProcessInstanceIdOrKeyLike = null // 流程实例IDOrKeyLike查询
+    this.actProcessStatusOrKeyLike = null // 流程状态OrKeyLike查询
+    this.createIdOrKeyLike = null // 创建人账号OrKeyLike查询
+    this.createNameOrKeyLike = null // 创建人名称OrKeyLike查询
+    this.createOrgOrKeyLike = null // 创建机构OrKeyLike查询
+    this.modifyIdOrKeyLike = null // 修改人账号OrKeyLike查询
+    this.modifyNameOrKeyLike = null // 修改人名称OrKeyLike查询
+    this.modifyOrgOrKeyLike = null // 修改机构OrKeyLike查询
+    this.delFlagOrKeyLike = null // 逻辑删除0=删除,1=显示OrKeyLike查询
+
+      /***************** 新增单个模糊查询 **************************/
+      this.companyNameAndlike = null // 单位名称AndKeyLike查询
+      this.creditCodeAndlike = null // 社会统一信用代码AndKeyLike查询
+      this.addressAndlike = null // 地址AndKeyLike查询
+      this.legalRepAndlike = null // 法定代表人AndKeyLike查询
+      this.legalPhoneAndlike = null // 法定代表人电话AndKeyLike查询
+      this.legalFaxAndlike = null // 法定代表人传真AndKeyLike查询
+      this.openingBankAndlike = null // 开户银行AndKeyLike查询
+      this.bankAccountAndlike = null // 银行账号AndKeyLike查询
+      this.regNumberAndlike = null // 纳税登记号AndKeyLike查询
+      this.conPhoneAndlike = null // 联系电话AndKeyLike查询
+      this.zipcodeAndlike = null // 邮政编码
+
+  }
+}

@@ -1,0 +1,62 @@
+Oracle19c修改用户最大连接数
+
+
+PDB数据库和传统数据库修改方法一样
+
+直接登录数据库管理员账号进行修改即可
+
+
+登录服务器
+
+sshpass -p Dongrun1234 ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 root@47.104.74.122 -p 22
+
+
+进入容器
+
+docker exec -i -t oracle19c /bin/bash
+
+
+登录数据库
+
+sqlplus / as sysdba
+
+
+修改最大进程数
+
+alter system set processes=3000 scope=spfile;
+
+
+修改最大连接数
+
+alter system set sessions=3305 scope=spfile;
+
+
+关闭数据库
+
+shutdown abort;
+
+
+启动数据库
+
+startup;
+
+
+
+查看当前最大进程数
+
+show parameters process;
+
+
+查看当前最大连接数
+
+show parameter session;
+
+
+查看当前已连接进程数
+
+select count(*) from v$process;
+
+
+查看当前已连接连接数
+
+select count(*) from v$session;

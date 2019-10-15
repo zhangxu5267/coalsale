@@ -1,0 +1,46 @@
+CentOS服务器安装Docker
+
+
+yum 安装 docker
+
+
+安装依赖
+
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+
+使用阿里云地址
+
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+
+安装 docker
+
+sudo yum install -y docker-ce docker-ce-cli containerd.io
+
+
+查看 docker 版本
+
+sudo docker version
+
+
+启动 docker 服务
+
+sudo systemctl start docker
+
+
+运行 hello world 测试
+
+sudo docker run hello-world
+
+
+登录 docker
+
+docker login -u moonnow -p moonnow
+
+
+安装出错参考
+
+https://www.yunforum.net/group-topic-id-1802.html
+
+删除 /etc/yum.repos.d 目录下与 docker 相关的多余文件

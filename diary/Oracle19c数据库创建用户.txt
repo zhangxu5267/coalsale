@@ -1,0 +1,67 @@
+Oracle19c数据库创建用户
+
+
+使用 system 用户登录数据库
+
+=========================
+
+主机地址   47.104.74.122
+
+端口       9521
+
+服务名     ORCL
+
+用户名     system
+
+密码       AEidZyYFn74=1
+
+=========================
+
+
+切换到 ORCLPDB 数据库
+
+ALTER SESSION SET CONTAINER=ORCLPDB;
+
+
+创建用户
+
+CREATE USER "COALSALECS" IDENTIFIED BY "coalsalecs";
+
+
+授权
+
+grant connect,resource to COALSALECS;
+grant create any sequence to COALSALECS;
+grant create any table to COALSALECS;
+grant delete any table to COALSALECS;
+grant insert any table to COALSALECS;
+grant select any table to COALSALECS;
+grant unlimited tablespace to COALSALECS;
+grant execute any procedure to COALSALECS;
+grant update any table to COALSALECS;
+grant create any view to COALSALECS;
+grant dba to COALSALECS;
+
+
+新建用户连接数据库使用 ORCLPDB 服务名
+
+=========================
+
+主机地址   47.104.74.122
+
+端口       9521
+
+服务名     ORCLPDB
+
+用户名     COALSALECS
+
+密码       coalsalecs
+
+=========================
+
+
+参考
+
+https://blog.csdn.net/u011161786/article/details/48108441
+
+http://www.nbsite.cn/database/85

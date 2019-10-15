@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drzyl.code.mapper.CodingMapper">
+  <select id="getTableNameAnnotation" resultType="String">
+    SELECT
+      userTabComments.COMMENTS 
+    FROM
+      USER_TAB_COMMENTS userTabComments 
+    WHERE
+      userTabComments.TABLE_NAME = #{tableName}
+  </select>
+  <select id="getAllColumnDataByTableName" resultType="com.drzyl.code.business.bo.ColumnData">
+    SELECT
+      userTabColumns.COLUMN_NAME,
+      userTabColumns.DATA_TYPE,
+      userTabColumns.DATA_LENGTH,
+      userTabColumns.DATA_PRECISION,
+      userTabColumns.NULLABLE,
+      userTabColumns.COLUMN_ID,
+      ( SELECT userColComments.COMMENTS FROM USER_COL_COMMENTS userColComments WHERE userColComments.TABLE_NAME = userTabColumns.TABLE_NAME AND userColComments.COLUMN_NAME = userTabColumns.COLUMN_NAME ) AS COMMENTS 
+    FROM
+      USER_TAB_COLUMNS userTabColumns 
+    WHERE
+      userTabColumns.TABLE_NAME = #{tableName} 
+    ORDER BY
+      userTabColumns.COLUMN_ID ASC
+  </select>
+  <select id="getPrimaryKeyConstraintNameByTableName" resultType="String">
+    SELECT
+      userConstraints.CONSTRAINT_NAME 
+    FROM
+      USER_CONSTRAINTS userConstraints 
+    WHERE
+      userConstraints.TABLE_NAME = #{tableName} 
+      AND userConstraints.CONSTRAINT_TYPE = 'P'
+  </select>
+  <select id="getPrimaryKeyColumnNameByTableNameAndConstraintName" resultType="String">
+    SELECT
+      userConsColumns.COLUMN_NAME 
+    FROM
+      USER_CONS_COLUMNS userConsColumns 
+    WHERE
+      userConsColumns.TABLE_NAME = #{param1}
+      AND userConsColumns.CONSTRAINT_NAME = #{param2}
+  </select>
+  <select id="getUniqueKeyConstraintNameByTableName" resultType="String">
+    SELECT
+      userConstraints.CONSTRAINT_NAME 
+    FROM
+      USER_CONSTRAINTS userConstraints 
+    WHERE
+      userConstraints.TABLE_NAME = #{tableName} 
+      AND userConstraints.CONSTRAINT_TYPE = 'U'
+  </select>
+  <select id="getUniqueKeyColumnNameByTableNameAndConstraintName" resultType="String">
+    SELECT
+      userConsColumns.COLUMN_NAME 
+    FROM
+      USER_CONS_COLUMNS userConsColumns 
+    WHERE
+      userConsColumns.TABLE_NAME = #{param1}
+      AND userConsColumns.CONSTRAINT_NAME = #{param2}
+  </select>
+</mapper>

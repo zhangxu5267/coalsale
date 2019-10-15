@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drzyl.zone.mapper.ZoneMapper">
+
+	<delete id="delByAreaId">
+	delete
+	from
+		PAR_ZONE_AREA_REGION_TEPE temp
+	where
+		temp.CRM_AREA_ID = #{areaId}
+	</delete>
+	<delete id="delRegionRele">
+	DELETE
+	FROM
+		PAR_ZONE_AREA_REGION_TEPE temp
+	WHERE
+		1=1
+	AND
+	<if test="orgId!=null and orgId != ''">
+		temp.ORG_ID = #{orgId}
+	</if>
+	AND
+		temp.CRM_AREA_ID = #{crmAreaId}
+
+	</delete>
+	<update id="delFlagZoneArea">
+		UPDATE
+			PAR_ZONE_AREA
+		SET
+			DEL_FLAG = '0'
+		WHERE
+			AREA_ID = #{areaId}
+	</update>
+	<select id="getRegionByAreaId" resultType="com.drzyl.zone.entity.ZoneRegion">
+		SELECT
+		region.REGION_NAME,
+		region.REGION_TYPE,
+		region.AGENCY_ID,
+		region.STATUS,
+		region.REGION_ID,
+		region.PARENT_ID
+		FROM
+		PAR_ZONE_REGION region
+		INNER JOIN PAR_ZONE_AREA_REGION_TEPE temp
+		ON temp.CRM_REGION_ID = region.REGION_ID
+		INNER JOIN PAR_ZONE_AREA area
+		ON temp.CRM_AREA_ID = area.AREA_ID
+		WHERE
+		area.AREA_ID = #{crmAreaId}
+		<if test="orgId!=null and orgId != ''">
+			and
+			temp.ORG_ID = #{orgId}
+		</if>
+
+	</select>
+</mapper>

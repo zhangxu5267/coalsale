@@ -1,0 +1,49 @@
+export default class CusAgentQuery {
+  constructor () {
+    this.toolExists = null // 解决多对多关系预留字段之存在
+    this.toolNotExists = null // 解决多对多关系预留字段之不存在
+    this.cusAgentId = null // ID
+    this.cusBaseId = null // 客户ID
+    this.aePer = null // 委托代理人
+    this.aePhone = null // 委托代理人电话
+    this.aeFax = null // 委托代理人传真
+    this.aeMatter = null // 委托事项
+    this.aeDate = null // 委托时间
+    this.orgId = null // 机构ID
+    this.aeEdate = null // 委托结束时间
+    this.uploadIds = null // 附件IDs
+    this.remark = null // 备注
+    this.actProcessInstanceId = null // 流程实例ID
+    this.actProcessStatus = null // 流程状态
+    this.versions = null // 版本号
+    this.createId = null // 创建人账号
+    this.createName = null // 创建人名称
+    this.createOrg = null // 创建机构
+    this.createTimes = null // 创建时间
+    this.modifyId = null // 修改人账号
+    this.modifyName = null // 修改人名称
+    this.modifyOrg = null // 修改机构
+    this.modifyTimes = null // 修改时间
+    this.delFlag = null // 逻辑删除0=删除,1=显示
+    this.cusAgentIdAndin = null // IDAndin查询
+    this.cusBaseIdAndKeyLike = null // 客户IDAndKeyLike查询
+    this.aePerOrKeyLike = null // 委托代理人OrKeyLike查询
+    this.aePhoneOrKeyLike = null // 委托代理人电话OrKeyLike查询
+    this.aeFaxOrKeyLike = null // 委托代理人传真OrKeyLike查询
+    this.aeMatterOrKeyLike = null // 委托事项OrKeyLike查询
+    this.aeDateOrKeyLike = null // 委托时间OrKeyLike查询
+    this.orgIdOrKeyLike = null // 机构IDOrKeyLike查询
+    this.aeEdateOrKeyLike = null // 委托结束时间OrKeyLike查询
+    this.uploadIdsOrKeyLike = null // 附件IDsOrKeyLike查询
+    this.remarkOrKeyLike = null // 备注OrKeyLike查询
+    this.actProcessInstanceIdOrKeyLike = null // 流程实例IDOrKeyLike查询
+    this.actProcessStatusOrKeyLike = null // 流程状态OrKeyLike查询
+    this.createIdOrKeyLike = null // 创建人账号OrKeyLike查询
+    this.createNameOrKeyLike = null // 创建人名称OrKeyLike查询
+    this.createOrgOrKeyLike = null // 创建机构OrKeyLike查询
+    this.modifyIdOrKeyLike = null // 修改人账号OrKeyLike查询
+    this.modifyNameOrKeyLike = null // 修改人名称OrKeyLike查询
+    this.modifyOrgOrKeyLike = null // 修改机构OrKeyLike查询
+    this.delFlagOrKeyLike = null // 逻辑删除0=删除,1=显示OrKeyLike查询
+  }
+}

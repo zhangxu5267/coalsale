@@ -1,0 +1,3 @@
+${ci}${ci}${ci}],
+${ci}${ci}${ci}${initialLowercaseEntityName}ColumnsNexus: {
+${ci}${ci}${ci}${ci}${primaryKeyInitialLowercaseColumnName}: { type: 'selection', width: 50, align: 'center', fixed: 'left' },

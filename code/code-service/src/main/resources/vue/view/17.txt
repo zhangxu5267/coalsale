@@ -1,0 +1,22 @@
+${ci}${ci}${ci}${ci}${ci}${ci}</Row>
+${ci}${ci}${ci}${ci}${ci}</CheckboxGroup>
+${ci}${ci}${ci}${ci}${ci}<Divider />
+${ci}${ci}${ci}${ci}${ci}<Button class="pro-margin-left-2 pro-margin-bottom-12" @click="clean${initialCaseEntityName}Columns()">清空</Button>
+${ci}${ci}${ci}${ci}${ci}<Button class="pro-margin-left-8 pro-margin-bottom-12" @click="reset${initialCaseEntityName}Columns()">重置</Button>
+${ci}${ci}${ci}${ci}</div>
+${ci}${ci}${ci}</Poptip>
+${ci}${ci}${ci}<Table :columns="${initialLowercaseEntityName}Columns" :data="${initialLowercaseEntityName}Set" @on-selection-change="set${initialCaseEntityName}SelectRow($event)" @on-row-dblclick="dblclickDetail${initialCaseEntityName}($event)"></Table>
+${ci}${ci}${ci}<Row class="pro-margin-top-10" type="flex" justify="center">
+${ci}${ci}${ci}${ci}<Page size="small" placement="top" show-total show-sizer show-elevator :total="${initialLowercaseEntityName}Count" :current="${initialLowercaseEntityName}Page" :page-size-opts="[10, 30, 50]" @on-change="${initialLowercaseEntityName}PageIndexChange($event)" @on-page-size-change="${initialLowercaseEntityName}PageSizeChange($event)" v-if="${initialLowercaseEntityName}PageShow" />
+${ci}${ci}${ci}${ci}<Button type="text" shape="circle" icon="md-refresh" @click="${initialLowercaseEntityName}Refresh()"></Button>
+${ci}${ci}${ci}</Row>
+${ci}${ci}${ci}<Spin size="large" fix v-if="${initialLowercaseEntityName}SpinShow"></Spin>
+${ci}${ci}</Card>
+${ci}${ci}<Modal width="60" v-model="${initialLowercaseEntityName}EditModalShow" :closable="false" :mask-closable="false" :footer-hide="true">
+${ci}${ci}${ci}<Card>
+${ci}${ci}${ci}${ci}<p slot="title">
+${ci}${ci}${ci}${ci}${ci}<Icon type="ios-brush-outline"></Icon>
+${ci}${ci}${ci}${ci}${ci}编辑${dtNameAnnotation}
+${ci}${ci}${ci}${ci}</p>
+${ci}${ci}${ci}${ci}<Form class="pro-margin-top-20" ref="${initialLowercaseEntityName}Form" :model="${initialLowercaseEntityName}" :rules="${initialLowercaseEntityName}FormValidate" :label-width="120">
+${ci}${ci}${ci}${ci}${ci}<Row type="flex" justify="center">

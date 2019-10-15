@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drzyl.cus.mapper.TagMapper">
+    <select id="getByPkOfDetail" resultType="com.drzyl.cus.vo.CusBaseVO">
+    select
+        base.CUS_BASE_ID as cusBaseId,
+        base.CUSTOM_NO as customNo,
+        base.COMPANY_NAME as companyName,
+        base.CREDIT_CODE as creditCode,
+        base.ADDRESS as address,
+        base.LEGAL_REP as legalRep,
+        base.LEGAL_PHONE as legalPhone,
+        base.LEGAL_FAX as legalFax,
+        base.OPENING_BANK as openingBank,
+        base.BANK_ACCOUNT as bankAccount,
+        base.REG_NUMBER as regNumber,
+        base.CON_PHONE as conPhone,
+        base.ZIPCODE as zipcode,
+        base.REMARK as remark,
+        base.UPLOAD_IDS as uploadIds,
+        base.ACT_PROCESS_INSTANCE_ID as actProcessInstanceId,
+        base.ACT_PROCESS_STATUS as actProcessStatus,
+        base.VERSIONS as versions,
+        base.CREATE_ID as createId,
+        base.CREATE_NAME as createName,
+        base.CREATE_ORG as createOrg,
+        base.CREATE_TIMES as createTimes,
+        base.MODIFY_ID as modifyId,
+        base.MODIFY_NAME as modifyName,
+        base.MODIFY_ORG as modifyOrg,
+        base.MODIFY_TIMES as modifyTimes,
+        base.DEL_FLAG as delFlag
+    from
+        BUS_CUS_TAG_TEMP temp
+    left join BUS_CUS_BASE base on
+        temp.CUS_BASE_ID = base.CUS_BASE_ID
+    where
+        temp.CUS_TAG_ID = #{cusTagId}
+        and base.DEL_FLAG!='0'
+    </select>
+</mapper>

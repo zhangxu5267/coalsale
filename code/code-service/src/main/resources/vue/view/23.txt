@@ -1,0 +1,10 @@
+${ci}${ci}${ci}]
+${ci}${ci}${ci}this.${initialLowercaseEntityName}Columns = []
+${ci}${ci}${ci}this.${initialLowercaseEntityName}ColumnsChecked.forEach(col => this.${initialLowercaseEntityName}Columns.push(this.${initialLowercaseEntityName}ColumnsNexus[col]))
+${ci}${ci}}
+${ci}},
+${ci}mounted () {
+${ci}${ci}this.get${initialCaseEntityName}Set()
+${ci}}
+}
+</script>

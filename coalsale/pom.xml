@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.drzyl</groupId>
+    <artifactId>rely</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <artifactId>coalsale</artifactId>
+  <packaging>jar</packaging>
+  <!-- <packaging>war</packaging> -->
+
+  <dependencies>
+    <!-- 代码生成 -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>code-rely</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- 数据字典 -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>dict-rely</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- 登录模块 -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>sign-rely</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- 客户管理 -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>cus-rely</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- 地区管理 -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>zone-rely</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- 文件管理 -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>upload-file-rely</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- 前台表格样式保存管理 -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>table-css-rely</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- war部署 需要指定项目名称 -->
+    <!-- <finalName>coalsale</finalName> -->
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

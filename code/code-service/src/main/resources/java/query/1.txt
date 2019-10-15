@@ -1,0 +1,19 @@
+package ${queryPackageName};
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.List;
+
+import lombok.Data;
+
+/**
+ * ${dtNameAnnotation} ${dtName} 查询类
+ */
+@Data
+public class ${initialCaseEntityName}Query implements Serializable {
+
+${ci}private static final long serialVersionUID = 1L;
+
+${ci}protected String toolExists; // 解决多对多关系预留字段之存在
+
+${ci}protected String toolNotExists; // 解决多对多关系预留字段之不存在

@@ -1,0 +1,14 @@
+登录设计思路说明
+
+
+账号独立管理会话过期时间
+
+0   表示会话永不过期
+
+BROWSER    浏览器
+
+ANDROID    安卓APP
+
+IOS        苹果APP
+
+WECHATAPP  微信小程序

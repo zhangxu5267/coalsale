@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drzyl.cus.mapper.CusMapper">
+	<sql id="CusBaseFields">
+		CUS_BASE_ID as cusBaseId,
+		CUSTOM_NO as customNo,
+		COMPANY_NAME as companyName,
+		CREDIT_CODE as creditCode,
+		ADDRESS as address,
+		LEGAL_REP as legalRep,
+		LEGAL_PHONE as legalPhone,
+		LEGAL_FAX as legalFax,
+		OPENING_BANK as openingBank,
+		BANK_ACCOUNT as bankAccount,
+		REG_NUMBER as regNumber,
+		CON_PHONE as conPhone,
+		ZIPCODE as zipcode,
+		REMARK as remark,
+		UPLOAD_IDS as uploadIds,
+		ACT_PROCESS_INSTANCE_ID as actProcessInstanceId,
+		ACT_PROCESS_STATUS as actProcessStatus
+	</sql>
+    <update id="flagDelCusBase" >
+        update
+            BUS_CUS_BASE a
+        set
+            DEL_FLAG = #{delFlag}
+        where
+            CUS_BASE_ID = #{cusBaseId}
+    </update>
+    <update id="flagDelCusBaseInfo">
+        update
+            BUS_CUS_BASE_INFO a
+        set
+            DEL_FLAG = #{delFlag}
+        where
+            a.CUS_BASE_ID = #{cusBaseInfoId}
+    </update>
+    <update id="flagDelCusAgent">
+        update
+            BUS_CUS_AGENT a
+        set
+            DEL_FLAG = #{delFlag}
+        where
+            a.CUS_BASE_ID = #{cusAgentId}
+    </update>
+    <update id="flagDelCusAddrDis">
+        update
+            BUS_CUS_ADDR_DIS a
+        set
+            DEL_FLAG = #{delFlag}
+        where
+            a.CUS_BASE_ID = #{cusAddrDisId}
+    </update>
+    <update id="flagDelCusAddress">
+        update
+            BUS_CUS_ADDRESS a
+        set
+            DEL_FLAG = #{delFlag}
+        where
+            a.CUS_BASE_ID = #{cusAddressId}
+    </update>
+	<select id="checkCompanyName">
+		SELECT
+			<include refid="CusBaseFields"></include>
+		,
+			<include refid="com.drzyl.tool.util.mapper.ToolMapper.publicFields"></include>
+		FROM
+			BUS_CUS_BASE a
+		WHERE
+			a.COMPANY_NAME like '%2%'
+	</select>
+	<delete id="delCusTagCorrelation">
+    DELETE FROM BUS_CUS_TAG_TEMP ctt
+    WHERE ctt.CUS_BASE_ID=#{cusBaseId}
+    </delete>
+    <select id="getAgents" resultType="com.drzyl.cus.entity.CusAgent">
+        select
+            CUS_AGENT_ID AS cusAgentId,
+            CUS_BASE_ID AS cusBaseId,
+            AE_PER AS aePer,
+            AE_PHONE AS aePhone,
+            AE_FAX AS aeFax,
+            AE_MATTER AS aeMatter,
+            AE_DATE AS aeDate,
+            ORG_ID AS orgId,
+            AE_EDATE AS aeEdate,
+            UPLOAD_IDS AS uploadIds,
+            REMARK AS remark,
+            ACT_PROCESS_INSTANCE_ID AS actProcessInstanceId,
+            ACT_PROCESS_STATUS AS actProcessStatus,
+            <include refid="com.drzyl.tool.util.mapper.ToolMapper.publicFields"></include>
+        from
+            BUS_CUS_AGENT AGENT
+        WHERE
+            AGENT.CUS_BASE_ID = #{cusBaseId}
+        and DEL_FLAG='1'
+    </select>
+    <select id="getAddDiss" resultType="com.drzyl.cus.entity.CusAddrDis">
+        select
+            CUS_ADDR_DIS_ID AS cusAddrDisId,
+            CUS_BASE_ID AS cusBaseId,
+            REC_ADDRESS AS recAddress,
+            REMARK AS remark,
+            UPLOAD_IDS AS uploadIds,
+            ACT_PROCESS_INSTANCE_ID AS actProcessInstanceId,
+            ACT_PROCESS_STATUS AS actProcessStatus,
+            <include refid="com.drzyl.tool.util.mapper.ToolMapper.publicFields"></include>
+        from
+            BUS_CUS_ADDR_DIS addrDis
+        where
+            addrDis.CUS_BASE_ID = #{cusBaseId}
+        and DEL_FLAG='1'
+    </select>
+    <select id="getAddrs" resultType="com.drzyl.cus.entity.CusAddress">
+        select
+            CUS_ADDRESS_ID AS cusAddressId,
+            CUS_BASE_ID AS cusBaseId,
+            CUS_NO AS cusNo,
+            REC_ADDRESS AS recAddress,
+            DELINE AS deline,
+            ARRIVE_STATION_NAME AS arriveStationName,
+            ARRIVE_STATION_NO AS arriveStationNo,
+            REMARK AS remark,
+            UPLOAD_IDS AS uploadIds,
+            ACT_PROCESS_INSTANCE_ID AS actProcessInstanceId,
+            ACT_PROCESS_STATUS AS actProcessStatus,
+            <include refid="com.drzyl.tool.util.mapper.ToolMapper.publicFields"></include>
+        from
+            BUS_CUS_ADDRESS addr
+        where
+            addr.CUS_BASE_ID = #{cusBaseId}
+        and DEL_FLAG='1'
+    </select>
+    <select id="getTags" resultType="com.drzyl.cus.entity.CusTag">
+        select
+            temp.CUS_TAG_TEMP_ID as cusTagTempId,
+            temp.CUS_TAG_ID as cusTagId,
+            temp.CUS_BASE_ID as cusBaseId
+        from
+            BUS_CUS_TAG_TEMP temp
+        left join BUS_CUS_TAG tag on
+            tag.CUS_TAG_ID = temp.CUS_TAG_ID
+        where
+            temp.CUS_BASE_ID =#{cusBaseId}
+        and
+        	tag.DEL_FLAG != '0'
+
+    </select>
+    <select id="getCusBaseInfo" resultType="com.drzyl.cus.entity.CusBaseInfo">
+        select
+            CUS_BASE_INFO_ID as cusBaseInfoId,
+        CUS_BASE_ID as cusBaseId,
+            CUS_NO as cusNo,
+            ORG_ID as orgId,
+            IS_KEY as isKey,
+            CUS_REGION as cusRegion,
+            CUS_PROVINCE as cusProvince,
+            CUS_INDUSTRY as cusIndustry,
+            CUS_COMNATURE as cusComnature,
+            CUS_TYPE as cusType,
+            TRAN_TYPE as tranType,
+            CUS_PARENT as cusParent,
+            CUS_SUB as cusSub,
+            FAX as fax, REMARK as remark, UPLOAD_IDS as uploadIds,
+            ACT_PROCESS_INSTANCE_ID as actProcessInstanceId,
+            ACT_PROCESS_STATUS as actProcessStatus,
+            <include refid="com.drzyl.tool.util.mapper.ToolMapper.publicFields"></include>FROM
+	        BUS_CUS_BASE_INFO
+        where
+            CUS_BASE_ID =#{cusBaseId}
+        and ORG_ID = #{orgId}
+        and DEL_FLAG='1'
+    </select>
+
+</mapper>

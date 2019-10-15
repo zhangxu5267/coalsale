@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drzyl.sign.mapper.OrgInfoMapper">
+  <select id="getOrgInfo" resultType="com.drzyl.sign.entity.Org">
+    SELECT
+      org.ORG_ID,
+      org.ORG_NAME,
+      org.ORG_TYPE,
+      org.ID_PATH,
+      org.NAME_PATH,
+      org.WEIGHT_ORDER,
+      org.ORG_PID,
+      org.VERSIONS,
+      org.CREATE_ID,
+      org.CREATE_NAME,
+      org.CREATE_TIMES,
+      org.MODIFY_ID,
+      org.MODIFY_NAME,
+      org.MODIFY_TIMES 
+    FROM
+      SYS_ORG org 
+    WHERE
+      org.ORG_ID IS NOT NULL 
+      AND (
+        org.ORG_TYPE = 'fgs' 
+        OR org.ORG_TYPE = 'bsc' 
+      ) 
+      AND org.ORG_ID IN 
+      <foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+        #{item}
+      </foreach>
+  </select>
+</mapper>

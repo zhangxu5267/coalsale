@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drzyl.code.mapper.DatabasetableMapper">
+  <select id="getAllTable" resultType="com.drzyl.code.business.vo.OracleTableInfo">
+    SELECT
+      userTables.TABLE_NAME,
+      userTabComments.COMMENTS 
+    FROM
+      USER_TABLES userTables
+      JOIN USER_TAB_COMMENTS userTabComments ON userTables.TABLE_NAME = userTabComments.TABLE_NAME
+  </select>
+</mapper>
